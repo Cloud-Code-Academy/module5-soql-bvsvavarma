@@ -532,7 +532,6 @@ public with sharing class SOQL {
 	 * Example: if there are two Contacts on the Account, "Billy" and "Abby," the 'Primary_Contact__c' will be set to "Abby."
 	 */
 	public static void setPrimaryContact() {
-		
 
 		// 1. Get the Closed Won Opportunities
 		List<Opportunity> closedWonOpps = SOQL.getOpportunityDetailsForClosedWon();
@@ -557,7 +556,7 @@ public with sharing class SOQL {
 			accountToContactsMap.get(c.AccountId).add(c);
 		}
 		
-		// 4. Find the Contact with the alphabetically first first name for each Account
+		// 4. Find the Contact with the alphabetically first name for each Account
 		Map<Id, Id> accountToPrimaryContactMap = new Map<Id, Id>();
 		for (Id accountId : accountToContactsMap.keySet()) {
 			List<Contact> contacts = accountToContactsMap.get(accountId);
